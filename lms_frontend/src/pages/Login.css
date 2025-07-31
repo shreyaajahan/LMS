@@ -1,0 +1,100 @@
+.login-container {
+  max-width: 350px;
+  margin: 60px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.login-logo {
+  margin-bottom: 12px;
+}
+
+.login-container h2 {
+  margin-bottom: 10px;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.login-desc {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.login-container input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #222;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  color: #222;
+  transition: border-color 0.2s;
+}
+
+.login-container input:focus {
+  border-color: #3182ce;
+  outline: 3px solid #3182ce;
+  outline-offset: 2px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+
+.login-container button:hover {
+  background: #2563eb;
+}
+
+.login-footer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.forgot-link {
+  color: #3182ce;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Add to Login.css */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
