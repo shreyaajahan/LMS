@@ -98,3 +98,43 @@
   height: 1px;
   overflow: hidden;
 }
+.profile-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.profile-bar p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.logout-button {
+  background: linear-gradient(135deg, #f43f5e, #ef4444);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: scale(1.05);
+}
+
+.logout-button:focus {
+  outline: 2px solid #94a3b8;
+  outline-offset: 2px;
+}

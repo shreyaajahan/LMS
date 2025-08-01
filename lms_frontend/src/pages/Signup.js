@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Signup() {
@@ -10,14 +10,55 @@ function Signup() {
     role: 'student',
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Signup submitted');
+
+    try {
+      // 1. Check if email is already used for a different role
+      const checkRes = await fetch("http://localhost:5000/api/auth/check-role", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: formData.email }),
+      });
+
+      const checkData = await checkRes.json();
+
+      if (checkData.exists && checkData.role !== formData.role) {
+        alert(`❌ This email is already registered as a ${checkData.role}. You cannot register it again as a ${formData.role}.`);
+        return;
+      }
+
+      // 2. Register the new user
+      const signupRes = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const signupData = await signupRes.json();
+
+      if (signupRes.ok) {
+        alert("✅ Signup successful!");
+        navigate('/login');
+      } else {
+        alert(`❌ Signup failed: ${signupData.message}`);
+      }
+
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert("❌ Something went wrong. Please try again.");
+    }
   };
 
   return (
